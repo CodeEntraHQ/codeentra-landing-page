@@ -1,0 +1,7 @@
+{
+    email saurabhkr952@gmail.com
+}
+
+api.codeentra.com {
+  reverse_proxy backend:4000
+}
