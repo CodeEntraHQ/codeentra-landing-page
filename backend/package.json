@@ -108,7 +108,8 @@
     "wrappy": "^1.0.2"
   },
   "scripts": {
-    "dev": "nodemon -r dotenv/config --experimental-json-modules src/app.js"
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/app.js",
+    "setup": "node setup.js"
   },
   "author": "Mohd Belal",
   "license": "ISC"
