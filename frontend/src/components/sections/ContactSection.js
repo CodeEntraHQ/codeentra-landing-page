@@ -3,9 +3,7 @@ import { useState } from "react";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Textarea } from "../../components/ui/textarea";
-
-const apiUrl = 'https://api.codeentra.com';
-// const apiPort = 4000;
+import { submitContactForm } from "../../services/api";
 
 const ContactSection = () => {
     const [formData, setFormData] = useState({
@@ -27,23 +25,13 @@ const ContactSection = () => {
         setLoading(true);
         setResponseMessage("");
         try {
-            const res = await fetch(`${apiUrl}/api/v1/user/contact`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
-            });
-            if (res.ok) {
-                setResponseMessage("Your message has been sent successfully!");
-                setFormData({ fullname: "", email: "", subject: "", message: "" });
-            }
-            else {
-                const errorData = await res.json();
-                setResponseMessage(`Error: ${errorData.message || "Something went wrong"}`);
-            }
+            await submitContactForm(formData);
+            setResponseMessage("Your message has been sent successfully!");
+            setFormData({ fullname: "", email: "", subject: "", message: "" });
         }
         catch (err) {
             console.log("API ERROR", err);
-            setResponseMessage("Error: Unable to send message.");
+            setResponseMessage(`Error: ${err.message || "Unable to send message. Please make sure the backend server is running."}`);
         }
         finally {
             setLoading(false);
