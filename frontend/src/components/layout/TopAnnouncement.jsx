@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getAllUpdates } from '../../services/api';
-import { X, Megaphone, Sparkles, Zap, TrendingUp, ChevronRight } from 'lucide-react';
+import { Megaphone, Sparkles, Zap, TrendingUp, ChevronRight } from 'lucide-react';
 
 const TopAnnouncement = () => {
   const { data: updatesData, isLoading } = useQuery({
@@ -172,98 +172,71 @@ const TopAnnouncement = () => {
   }
 
   return (
-    <div className="fixed top-4 right-4 z-[100] animate-slide-in-right" style={{ maxWidth: '144px', width: '144px' }}>
-      {/* Glassmorphism Card with Gradient Border */}
-      <div className={`relative rounded-lg overflow-hidden group transition-all duration-500 hover:scale-[1.02] shadow-xl`}>
-        {/* Gradient Border Effect */}
-        <div className={`absolute inset-0 rounded-lg bg-gradient-to-r ${getTypeColor(currentUpdate.type)} opacity-30 blur-md group-hover:opacity-40 transition-all duration-500`}></div>
-        
-        {/* Glass Background */}
-        <div className="relative bg-white/95 backdrop-blur-xl border-2 border-white/30 rounded-lg shadow-xl transition-all duration-500">
-          {/* Animated Gradient Overlay */}
-          <div className={`absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r ${getTypeColor(currentUpdate.type)} transition-colors duration-500`}></div>
-          
-          {/* Close Button */}
-          <button
-            onClick={handleDismiss}
-            className="absolute top-1 right-1 p-0.5 rounded-full bg-gray-100/80 backdrop-blur-sm hover:bg-gray-200/90 transition-all duration-200 z-10 shadow-md hover:shadow-lg"
-            aria-label="Close announcement"
-          >
-            <X className="w-2.5 h-2.5 text-gray-700 hover:text-gray-900" />
-          </button>
-
-          {/* Content */}
-          <div className="p-2 pr-7">
-            <div className="flex flex-col space-y-1">
-              {/* Type Badge - Full Width, Single Line */}
-              <div className="flex items-center justify-center">
-                <span className={`text-[9px] font-bold uppercase tracking-tighter ${getTypeColor(currentUpdate.type)} text-white px-1.5 py-0.5 rounded shadow-md transition-all duration-500 text-center w-full whitespace-nowrap overflow-hidden text-ellipsis`}>
-                  {currentUpdate.type || 'Announcement'}
-                </span>
-              </div>
-              
-              {/* Icon and Title Row */}
-              <div className="flex items-center space-x-1.5">
-                {/* Icon with Glow Effect */}
-                <div className={`flex-shrink-0 ${getTypeColor(currentUpdate.type)} text-white p-1 rounded shadow-lg relative transition-all duration-500`}>
-                  <div className={`absolute inset-0 ${getTypeColor(currentUpdate.type)} opacity-50 blur-md transition-all duration-500`}></div>
-                  <div className="relative">
+    <div className="fixed top-[80px] left-0 right-0 z-[45] w-full animate-slide-in-from-left">
+      {/* Horizontal Banner Bar - Centered with Margins */}
+      <div className="relative w-full overflow-hidden group transition-all duration-500 shadow-md backdrop-blur-sm border-b border-gray-200/30 bg-gradient-to-r from-white via-gray-50/50 to-white">
+        {/* Container with equal left/right margins */}
+        <div className="mx-4 md:mx-8 lg:mx-12 xl:mx-16 py-2.5">
+          {/* Marquee Wrapper */}
+          <div className="relative overflow-hidden">
+            {/* Marquee Content */}
+            <div className="flex items-center gap-6 animate-marquee whitespace-nowrap">
+              {/* Content repeated for seamless loop */}
+              {[...Array(3)].map((_, repeatIndex) => (
+                <div key={repeatIndex} className="flex items-center gap-6 flex-shrink-0">
+                  {/* Icon */}
+                  <div className={`flex-shrink-0 ${getTypeColor(currentUpdate.type)} text-white p-1.5 rounded shadow-md relative transition-all duration-300`}>
                     {getTypeIcon(currentUpdate.type)}
                   </div>
+                  
+                  {/* Type Badge */}
+                  <span className={`text-xs font-bold uppercase tracking-wide ${getTypeColor(currentUpdate.type)} text-white px-2.5 py-1 rounded shadow-sm transition-all duration-300 whitespace-nowrap`}>
+                    {currentUpdate.type || 'Announcement'}
+                  </span>
+                  
+                  {/* Title */}
+                  <span className="text-sm font-semibold text-gray-900 whitespace-nowrap">
+                    {currentUpdate.title}
+                  </span>
+                  
+                  {/* Separator */}
+                  <span className="text-gray-300">•</span>
+                  
+                  {/* Description */}
+                  <span className="text-xs text-gray-600 whitespace-nowrap">
+                    {currentUpdate.description}
+                  </span>
+                  
+                  {/* Separator */}
+                  <span className="text-gray-300">•</span>
+                  
+                  {/* Date */}
+                  <span className="text-xs text-gray-500 whitespace-nowrap">
+                    {new Date(currentUpdate.createdAt).toLocaleDateString('en-IN', {
+                      day: 'numeric',
+                      month: 'short'
+                    })}
+                  </span>
+                  
+                  {/* Link */}
+                  <a
+                    href="#updates"
+                    className="flex items-center text-xs font-semibold text-green-700 hover:text-green-800 transition-all duration-200 whitespace-nowrap"
+                  >
+                    More
+                    <ChevronRight className="w-3.5 h-3.5 ml-1" />
+                  </a>
+                  
+                  {/* Separator between repeats */}
+                  {repeatIndex < 2 && <span className="text-gray-300 mx-2">•</span>}
                 </div>
-
-                {/* Title */}
-                <h4 className="text-[10px] font-bold text-gray-900 line-clamp-1 drop-shadow-sm transition-all duration-500 flex-1">
-                  {currentUpdate.title}
-                </h4>
-              </div>
-              
-              {/* Description */}
-              <p className="text-[9px] text-gray-700 line-clamp-1 mb-1 leading-tight transition-all duration-500">
-                {currentUpdate.description}
-              </p>
-              
-              {/* Date and Link */}
-              <div className="flex items-center justify-between pt-1 border-t border-gray-200/60">
-                <span className="text-[9px] text-gray-600 font-medium">
-                  {new Date(currentUpdate.createdAt).toLocaleDateString('en-IN', {
-                    day: 'numeric',
-                    month: 'short'
-                  })}
-                </span>
-                <a
-                  href="#updates"
-                  className="flex items-center text-[9px] font-semibold text-green-700 hover:text-green-800 transition-all duration-200 group/link"
-                >
-                  More
-                  <ChevronRight className="w-2 h-2 ml-0.5 group-hover/link:translate-x-0.5 transition-transform" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Shimmer Effect on Hover */}
-          <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none rounded-lg"></div>
-          
-          {/* Animated Border Glow */}
-          <div className={`absolute inset-0 rounded-lg ${getTypeColor(currentUpdate.type)} opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500 -z-10`}></div>
-          
-          {/* Update Indicator */}
-          {activeUpdates.length > 1 && (
-            <div className="absolute bottom-1.5 left-1/2 transform -translate-x-1/2 flex space-x-1">
-              {activeUpdates.map((_, index) => (
-                <div
-                  key={index}
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${
-                    index === currentIndex
-                      ? `${getTypeColor(currentUpdate.type)} opacity-100 shadow-md`
-                      : 'bg-gray-400 opacity-40'
-                  }`}
-                ></div>
               ))}
             </div>
-          )}
+          </div>
         </div>
+
+        {/* Shimmer Effect on Hover */}
+        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"></div>
       </div>
     </div>
   );
