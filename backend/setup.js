@@ -39,6 +39,19 @@ const setupDatabase = async () => {
   // Import database modules after env vars are loaded
   const { default: sequelize } = await import("./src/db/index.js");
   const { default: User } = await import("./src/models/user.model.js");
+  const { default: Internship } = await import("./src/models/internship.model.js");
+  const { default: Notification } = await import("./src/models/notification.model.js");
+  const { default: Pricing } = await import("./src/models/pricing.model.js");
+  const { default: Update } = await import("./src/models/update.model.js");
+  const { default: Admin } = await import("./src/models/admin.model.js");
+  const { default: ContactInfo } = await import("./src/models/contactInfo.model.js");
+  const { default: Conversation } = await import("./src/models/conversation.model.js");
+  const { default: FAQ } = await import("./src/models/faq.model.js");
+  const { default: Footer } = await import("./src/models/footer.model.js");
+  const { default: Navbar } = await import("./src/models/navbar.model.js");
+  const { default: Product } = await import("./src/models/product.model.js");
+  const { default: Service } = await import("./src/models/service.model.js");
+  const { default: Testimonial } = await import("./src/models/testimonial.model.js");
   
   try {
     console.log("\nConnecting to database...");
@@ -120,10 +133,65 @@ const setupDatabase = async () => {
       }
     }
 
+    // Seed default pricing data if not exists
+    const existingPricings = await Pricing.findAll();
+    if (existingPricings.length === 0) {
+      console.log("\nSeeding default pricing data...");
+      const defaultPricings = [
+        { duration: 1, price: 3000.00, isActive: true },
+        { duration: 2, price: 4500.00, isActive: true },
+        { duration: 3, price: 6000.00, isActive: true },
+        { duration: 4, price: 7500.00, isActive: true },
+        { duration: 5, price: 9000.00, isActive: true },
+        { duration: 6, price: 10500.00, isActive: true },
+      ];
+
+      const transaction = await sequelize.transaction();
+      try {
+        for (const pricing of defaultPricings) {
+          await Pricing.create(pricing, { transaction });
+        }
+        await transaction.commit();
+        console.log(`✓ Successfully seeded ${defaultPricings.length} default pricing plans.`);
+      } catch (error) {
+        await transaction.rollback();
+        console.error("Error seeding pricing data:", error);
+      }
+    } else {
+      console.log(`\n✓ Found ${existingPricings.length} existing pricing plan(s).`);
+    }
+
     // Display summary
     const totalUsers = await User.count();
-    console.log(`\n📊 Database Summary:`);
-    console.log(`   Total users: ${totalUsers}`);
+    const totalInternships = await Internship.count();
+    const totalNotifications = await Notification.count();
+    const totalPricings = await Pricing.count();
+    const totalUpdates = await Update.count();
+    const totalAdmins = await Admin.count();
+    const totalContactInfo = await ContactInfo.count();
+    const totalConversations = await Conversation.count();
+    const totalFAQs = await FAQ.count();
+    const totalFooter = await Footer.count();
+    const totalNavbar = await Navbar.count();
+    const totalProducts = await Product.count();
+    const totalServices = await Service.count();
+    const totalTestimonials = await Testimonial.count();
+    
+    console.log(`\n📊 Database Summary (All Tables):`);
+    console.log(`   ✓ Users: ${totalUsers}`);
+    console.log(`   ✓ Internships: ${totalInternships}`);
+    console.log(`   ✓ Notifications: ${totalNotifications}`);
+    console.log(`   ✓ Pricing Plans: ${totalPricings}`);
+    console.log(`   ✓ Updates: ${totalUpdates}`);
+    console.log(`   ✓ Admins: ${totalAdmins}`);
+    console.log(`   ✓ Contact Info: ${totalContactInfo}`);
+    console.log(`   ✓ Conversations: ${totalConversations}`);
+    console.log(`   ✓ FAQs: ${totalFAQs}`);
+    console.log(`   ✓ Footer Items: ${totalFooter}`);
+    console.log(`   ✓ Navbar Items: ${totalNavbar}`);
+    console.log(`   ✓ Products: ${totalProducts}`);
+    console.log(`   ✓ Services: ${totalServices}`);
+    console.log(`   ✓ Testimonials: ${totalTestimonials}`);
     
     // Display all users
     const allUsers = await User.findAll({
@@ -135,6 +203,19 @@ const setupDatabase = async () => {
       console.log(`\n📋 Users in database:`);
       allUsers.forEach((user) => {
         console.log(`   ${user.id} - ${user.fullname} (${user.email}) - ${user.subject}`);
+      });
+    }
+
+    // Display all internships
+    const allInternships = await Internship.findAll({
+      attributes: ["id", "fullName", "email", "duration", "college"],
+      order: [["id", "ASC"]],
+    });
+    
+    if (allInternships.length > 0) {
+      console.log(`\n📋 Internship Applications in database:`);
+      allInternships.forEach((internship) => {
+        console.log(`   ${internship.id} - ${internship.fullName} (${internship.email}) - ${internship.duration} months - ${internship.college}`);
       });
     }
 
