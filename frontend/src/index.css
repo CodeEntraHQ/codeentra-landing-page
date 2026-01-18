@@ -2,6 +2,20 @@
 html, body {
   overflow-x: hidden;
   background: linear-gradient(to bottom right, #f0fdf4, #ffffff, #f0fdf4);
+  /* Smooth Scrolling for entire website */
+  scroll-behavior: smooth;
+}
+
+/* Smooth Scroll Offset for Fixed Navbar */
+html {
+  scroll-padding-top: 80px; /* Navbar height offset */
+}
+
+/* Smooth Scrolling Animation - Better browser support */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 /* Internship Button Animations */
@@ -105,8 +119,36 @@ html, body {
   }
 }
 
+@keyframes slide-in-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
 .animate-slide-in-right {
   animation: slide-in-right 0.5s ease-out;
+}
+
+.animate-slide-in-from-left {
+  animation: slide-in-from-left 0.6s ease-out;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }
 
 @keyframes pulse-2s {
