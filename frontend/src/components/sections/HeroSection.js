@@ -62,19 +62,22 @@ const HeroSection = () => {
                                     children: "We deliver end-to-end tech services and on-site talent, empowering companies to scale faster and smarter in the digital era." 
                                 }), 
                                 _jsxs("div", { 
-                                    className: "flex flex-col sm:flex-row gap-4 justify-center md:justify-start", 
+                                    className: "flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center px-4 md:pl-15", 
                                     children: [
                                         _jsx("a", { 
                                             href: "#contact", 
                                             children: _jsx(Button, { 
-                                                className: "bg-green-800 hover:bg-green-700 text-black px-7 py-6 mx-4 md:ml-15", 
+                                                className: "bg-green-800 hover:bg-green-700 text-white px-7 py-6", 
                                                 children: "Get Started" 
                                             }) 
                                         }), 
-                                        _jsx(Button, { 
-                                            variant: "outline", 
-                                            className: "border-green-700 text-black hover:text-green-700 hover:bg-green-50 font-medium px-8 py-6 mx-4 md:mx-0", 
-                                            children: "Learn More" 
+                                        _jsx("a", { 
+                                            href: "#career", 
+                                            children: _jsx(Button, { 
+                                                variant: "outline", 
+                                                className: "border-green-700 text-black hover:text-green-700 hover:bg-green-50 font-medium px-8 py-6", 
+                                                children: "Learn More" 
+                                            }) 
                                         })
                                     ] 
                                 })
