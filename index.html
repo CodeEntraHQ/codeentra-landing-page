@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="codeEntra - Empowering Your Digital Transformation">
+    <title>codeEntra - Tech Unlocking Solutions</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar-custom" id="navbar">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="img/logo.png" alt="codeEntra Logo" class="logo-img">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#testimonials">Testimonials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#career">Career</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-contact" onclick="openContactForm()">Contact Us</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-dark-mode" id="darkModeToggle" aria-label="Toggle dark mode">
+                                <i class="bi bi-sun" id="sunIcon"></i>
+                                <i class="bi bi-moon" id="moonIcon" style="display: none;"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <span class="badge-custom">Tech Unlocking Solutions</span>
+                    <h1 class="hero-title">
+                        Empowering Your<br>
+                        <span class="text-green">Digital<br>Transformation</span>
+                    </h1>
+                    <p class="hero-description">
+                        We deliver end-to-end tech services and on-site talent, empowering companies to scale faster and smarter in the digital era.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary-custom">Get Started</a>
+                        <a href="#career" class="btn btn-outline-custom">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image-glow"></div>
+                        <div class="hero-image-container">
+                            <div class="hero-image-top-bar"></div>
+                            <img src="img/Test3.png" alt="Hero" class="hero-image" id="heroImage">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding" id="services">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge-custom">Our Services</span>
+                <h2 class="section-title">
+                    Comprehensive <span class="text-green">Tech Unlocking Solutions</span>
+                </h2>
+                <p class="section-description">
+                    We offer a wide range of technology services to help your business succeed in the digital world. Here are some of our core offerings:
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-layout">
+                            <div class="service-icon">
+                                <i class="bi bi-code-slash"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Web Development</h3>
+                                <p>Custom websites and web applications built with the latest technologies to create powerful digital experiences.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-layout">
+                            <div class="service-icon">
+                                <i class="bi bi-gear"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>DevOps Solutions</h3>
+                                <p>Streamlined development workflows, CI/CD pipelines, and infrastructure automation to improve your delivery process.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-layout">
+                            <div class="service-icon">
+                                <i class="bi bi-cloud"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Cloud Services</h3>
+                                <p>Expert cloud solutions for AWS, Azure, and GCP to help you scale your infrastructure efficiently and securely.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-layout">
+                            <div class="service-icon">
+                                <i class="bi bi-palette"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>UX/UI Design</h3>
+                                <p>User-centered design that creates intuitive, engaging, and accessible digital experiences that convert visitors to customers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-layout">
+                            <div class="service-icon">
+                                <i class="bi bi-clock-history"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>IT Consulting</h3>
+                                <p>Strategic technology consulting to help your business make the right decisions for sustainable growth and innovation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-layout">
+                            <div class="service-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Cybersecurity</h3>
+                                <p>Comprehensive security solutions to protect your business from threats and ensure compliance with regulations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-layout">
+                            <div class="service-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>IT Staffing Solutions</h3>
+                                <p>Expert IT professionals and technical talent on-demand. We provide skilled employees to companies needing qualified staff for their projects and operations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-layout">
+                            <div class="service-icon">
+                                <i class="bi bi-tools"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Website Maintenance & Support</h3>
+                                <p>Comprehensive website maintenance services including updates, security patches, performance optimization, and ongoing support for colleges, institutions, and businesses.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-layout">
+                            <div class="service-icon">
+                                <i class="bi bi-megaphone"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Marketing & Advertisement Services</h3>
+                                <p>Comprehensive marketing and promotional services for your business or college. We organize seminars, workshops, and promotional events in other institutions and schools to expand your reach and visibility.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-glow"></div>
+                        <div class="about-images-grid">
+                            <img src="img/Test3.png" alt="About" class="about-image">
+                            <img src="img/Test4.png" alt="About" class="about-image">
+                            <img src="img/Test5.jpeg" alt="About" class="about-image">
+                            <img src="img/Test3.png" alt="About" class="about-image">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <span class="badge-custom">About Us</span>
+                    <h2 class="section-title">
+                        We're a Team of <span class="text-green">Tech Enthusiasts</span>
+                    </h2>
+                    <p class="about-text">
+                        Founded in 2025, codeEntra Unlocking Solutions has grown to leading technology solutions provider. Our mission is to empower businesses with innovative technology solutions that drive growth and success.
+                    </p>
+                    <p class="about-text">
+                        We combine technical expertise with a deep understanding of business needs to deliver solutions that not only solve problems but create opportunities for our clients. Our team of dedicated professionals is passionate about technology and committed to excellence in everything we do.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section-padding" id="products">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge-custom">Our Products</span>
+                <h2 class="section-title">
+                    Innovative <span class="text-green">Solutions</span> We've Built
+                </h2>
+                <p class="section-description">
+                    Explore our cutting-edge products designed to solve real-world problems and empower businesses.
+                </p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="product-card">
+                        <div class="product-layout">
+                            <div class="product-icon">
+                                <i class="bi bi-stars"></i>
+                            </div>
+                            <div class="product-content">
+                                <h3>ExamEntra</h3>
+                                <p>A comprehensive examination management platform designed to streamline the entire exam process. From creation to evaluation, ExamEntra makes exam management effortless and efficient.</p>
+                                <div class="product-features">
+                                    <span class="feature-badge"><i class="bi bi-lightning"></i> Easy Exam Creation</span>
+                                    <span class="feature-badge"><i class="bi bi-lightning"></i> Real-time Analytics</span>
+                                    <span class="feature-badge"><i class="bi bi-lightning"></i> Secure Platform</span>
+                                    <a href="#" id="examentraLink" target="_blank" rel="noopener noreferrer" class="btn btn-product">
+                                        Explore Product <i class="bi bi-arrow-right"></i> <i class="bi bi-box-arrow-up-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p class="text-muted">More exciting products coming soon! Stay tuned for updates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding" id="testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge-custom">Testimonials</span>
+                <h2 class="section-title">
+                    What Our <span class="text-green">Clients Say</span>
+                </h2>
+                <p class="section-description">
+                    Don't just take our word for it. Here's what some of our clients have to say about working with us.
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card active">
+                        <div class="testimonial-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="testimonial-quote">
+                            <i class="bi bi-quote"></i>
+                            <p>"codeEntra transformed our outdated systems into a streamlined, modern infrastructure. Their expertise in DevOps was invaluable, and the results have significantly improved our productivity."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div>
+                                <h5>Abhishek</h5>
+                                <p>Principal, University partner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="testimonial-quote">
+                            <i class="bi bi-quote"></i>
+                            <p>"Working with codeEntra on our web application was a game-changer. Their team delivered beyond our expectations, creating an intuitive platform that our users love."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div>
+                                <h5>Suhani</h5>
+                                <p>HOD, EcoSolutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                        </div>
+                        <div class="testimonial-quote">
+                            <i class="bi bi-quote"></i>
+                            <p>"The cloud migration support from codeEntra was excellent. Their team guided us through every step with clear communication and technical expertise."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div>
+                                <h5>Sourabh</h5>
+                                <p>HOC, Global client Partners</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-indicators text-center mt-4">
+                <button class="indicator active" data-testimonial="0"></button>
+                <button class="indicator" data-testimonial="1"></button>
+                <button class="indicator" data-testimonial="2"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Section -->
+    <section class="section-padding" id="career">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge-custom">Career Opportunities</span>
+                <h2 class="section-title">
+                    Start Your Career with <span class="text-green">codeEntra</span>
+                </h2>
+                <p class="section-description">
+                    Join our internship program and kickstart your career in technology. Work on real projects, learn from experts, and build your professional network.
+                </p>
+            </div>
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-layout">
+                            <div class="benefit-icon">
+                                <i class="bi bi-book"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Learning & Growth</h3>
+                                <p>Continuous learning opportunities and mentorship from industry experts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-layout">
+                            <div class="benefit-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Team Collaboration</h3>
+                                <p>Work with talented professionals in a collaborative environment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-layout">
+                            <div class="benefit-icon">
+                                <i class="bi bi-briefcase"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Real-World Projects</h3>
+                                <p>Gain hands-on experience working on live projects</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-layout">
+                            <div class="benefit-icon">
+                                <i class="bi bi-award"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h3>Certificate & Recognition</h3>
+                                <p>Receive certificates and recommendations upon completion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="career-cta">
+                <h3>Ready to Begin Your Journey? <span class="text-green">Apply for Internship Today!</span></h3>
+                <button class="btn btn-internship" onclick="openInternshipForm()">
+                    <i class="bi bi-briefcase"></i> Apply for Internship
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge-custom">Contact Us</span>
+                <h2 class="section-title">
+                    Let's Start Your <span class="text-green">Digital Journey</span>
+                </h2>
+                <p class="section-description">
+                    Ready to transform your business with cutting-edge technology solutions? Get in touch with our team to discuss how we can help you achieve your goals.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Our Office</h4>
+                                <p id="contactAddress">CodeEntra Unlocking Solutions Pvt. Ltd.<br>
+                                Khata No. 64, Bhagwat Nag, Adarsh Colony, Kumhrar, Patna- 800026, Bihar</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email Us</h4>
+                                <a href="#" id="contactEmail">info@codeentra.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <div>
+                                <h4>Call Us</h4>
+                                <a href="#" id="contactPhone">+(91) 8105791804</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-form-wrapper">
+                        <h3>Send us a message</h3>
+                        <button class="btn btn-contact-form" onclick="openContactForm()">
+                            Open Contact Form <i class="bi bi-box-arrow-up-right"></i>
+                        </button>
+                        <p class="form-note">Click the button above to open our contact form in a new window.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <h3 class="footer-brand">codeEntra</h3>
+                    <p>Providing innovative tech unlocking solutions to help your business grow and succeed in the digital landscape.</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">DevOps Solutions</a></li>
+                        <li><a href="#services">Cloud Services</a></li>
+                        <li><a href="#services">UX/UI Design</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#career">Careers</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" id="socialFacebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+                        <a href="#" id="socialTwitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" id="socialInstagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+                        <a href="#" id="socialLinkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                    <p class="copyright">© 2025 codeEntra. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <button class="chatbot-button" id="chatbotButton" aria-label="Open chatbot">
+            <i class="bi bi-chat-dots-fill"></i>
+        </button>
+        <div class="chatbot-panel" id="chatbotPanel">
+            <div class="chatbot-header">
+                <div class="chatbot-header-content">
+                    <i class="bi bi-robot"></i>
+                    <div>
+                        <h4>codeEntra Assistant</h4>
+                        <p>We're here to help!</p>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">
+                    <div class="message-header">
+                        <i class="bi bi-robot"></i>
+                        <span>Assistant</span>
+                    </div>
+                    <p>Hello! I am codeEntra assistant. How can I help you today?</p>
+                </div>
+                <div class="chatbot-options-inline" id="chatbotOptions">
+                    <button class="chatbot-option" data-option="services">Our Services</button>
+                    <button class="chatbot-option" data-option="products">Our Products</button>
+                    <button class="chatbot-option" data-option="internship">Internship Program</button>
+                    <button class="chatbot-option" data-option="about">About codeEntra</button>
+                    <button class="chatbot-option" data-option="contact">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Modal -->
+    <div class="modal fade" id="serviceModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="serviceModalTitle">Service Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="serviceModalContent">Service information will be displayed here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Forms Modal Placeholder -->
+    <div class="modal fade" id="formModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formModalTitle">Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Google Form will be integrated here. This is a placeholder.</p>
+                    <p class="text-muted">The form link will be added once the Google Form is ready.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Populate dynamic values from config
+        document.addEventListener('DOMContentLoaded', () => {
+            // Contact Information
+            if (typeof CONFIG !== 'undefined') {
+                // Contact address
+                const contactAddress = document.getElementById('contactAddress');
+                if (contactAddress) {
+                    contactAddress.innerHTML = `${CONFIG.contact.companyName}<br>${CONFIG.contact.address}`;
+                }
+                
+                // Contact email
+                const contactEmail = document.getElementById('contactEmail');
+                if (contactEmail) {
+                    contactEmail.href = `mailto:${CONFIG.contact.email}`;
+                    contactEmail.textContent = CONFIG.contact.email;
+                }
+                
+                // Contact phone
+                const contactPhone = document.getElementById('contactPhone');
+                if (contactPhone) {
+                    contactPhone.href = `tel:${CONFIG.contact.phoneLink}`;
+                    contactPhone.textContent = CONFIG.contact.phone;
+                }
+                
+                // Product links
+                const examentraLink = document.getElementById('examentraLink');
+                if (examentraLink && CONFIG.products.examentra) {
+                    examentraLink.href = CONFIG.products.examentra;
+                }
+                
+                // Social media links
+                const socialFacebook = document.getElementById('socialFacebook');
+                if (socialFacebook && CONFIG.social.facebook) {
+                    socialFacebook.href = CONFIG.social.facebook;
+                }
+                
+                const socialTwitter = document.getElementById('socialTwitter');
+                if (socialTwitter && CONFIG.social.twitter) {
+                    socialTwitter.href = CONFIG.social.twitter;
+                }
+                
+                const socialInstagram = document.getElementById('socialInstagram');
+                if (socialInstagram && CONFIG.social.instagram) {
+                    socialInstagram.href = CONFIG.social.instagram;
+                }
+                
+                const socialLinkedin = document.getElementById('socialLinkedin');
+                if (socialLinkedin && CONFIG.social.linkedin) {
+                    socialLinkedin.href = CONFIG.social.linkedin;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
